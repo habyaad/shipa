@@ -6,9 +6,7 @@ import 'package:shipa/features/ride/domain/entities/ride_tracking_entity.dart';
 import 'package:shipa/features/ride/domain/repositories/ride_repository.dart';
 
 final rideRepositoryProvider = Provider<RideRepository>((ref) {
-  return RideRepositoryImpl(
-    remoteDataSource: MockRideRemoteDataSourceImpl(),
-  );
+  return RideRepositoryImpl(remoteDataSource: MockRideRemoteDataSourceImpl());
 });
 
 final rideRouteProvider = FutureProvider<List<LatLng>>((ref) async {

@@ -122,10 +122,7 @@ class _RideTrackingScreenState extends ConsumerState<RideTrackingScreen>
               backgroundColor: Colors.white,
               child: IconButton(
                 onPressed: _restartSimulation,
-                icon: const Icon(
-                  Icons.refresh,
-                  color: Colors.black,
-                ),
+                icon: const Icon(Icons.refresh, color: Colors.black),
               ),
             ),
           ),
