@@ -60,7 +60,8 @@ The app uses Riverpod for decoupled business logic and UI updates:
 - **`rideRouteProvider`**: Handles the initial asynchronous loading of the delivery path.
 - **`rideTrackingProvider`**: A `StreamProvider` that listens to live coordinate and status updates from the repository.
 
-### Previews
+### Preview
+<img width="320" height="714" alt="Screenshot 2026-05-08 at 7 51 30 AM" src="https://github.com/user-attachments/assets/81d3b6c0-ec02-4a02-8d32-84619035af8a" />
 
 ### Download
-[Download Release APK](https://github.com/habyaad/shipa/releases/download/v1.0.0/app-release.apk)
+[Download Release APK](https://github.com/habyaad/shipa/releases/download/v1.0.1/app-arm64-v8a-release.apk)
