@@ -56,36 +56,18 @@ jobs:
       - name: Build apk
         run: flutter build apk
 
-      - uses: actions/upload-artifact@v1
+      - uses: actions/upload-artifact@v4
         with:
           name: release-apk
           path: build/app/outputs/apk/release/app-release.apk
 
-      #      - name: Get last release
-      #        id: last_release
-      #        run: echo "::set-output name=tag::$(git describe --tags $(git rev-list --tags --max-count=1))"
-      #
-      #      - name: Determine next version
-      #        id: next_version
-      #        run: echo "::set-output name=next_version::$(echo ${{ steps.last_release.outputs.tag }} | awk -F '.' '{print "v"$1"."$2+1".0"}')"
-
       - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v2
         with:
-          tag_name: v1.0.0 #${{ steps.next_version.outputs.next_version }}
-          release_name: Release v1.0.0 #${{ steps.next_version.outputs.next_version }}
+          tag_name: v1.0.0
+          name: Release v1.0.0
           draft: false
           prerelease: false
-      - name: Upload APK
-        id: upload-release-asset
-        uses: actions/upload-release-asset@v1
+          files: build/app/outputs/apk/release/app-release.apk
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: build/app/outputs/apk/release/app-release.apk  # Specify the path to your APK
-          asset_name: app-release.apk  # Specify the name of the APK
-          asset_content_type: application/vnd.android.package-archive
